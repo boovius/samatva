@@ -1,0 +1,9 @@
+--compilers js:babel-register
+
+--require ./test/setupFakeDOM
+--require ./test/testSetup
+--reporter progress
+--recursive
+
+src/**/*-test.js
+
