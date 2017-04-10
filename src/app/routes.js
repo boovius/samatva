@@ -4,11 +4,11 @@ import { Route, IndexRoute } from 'react-router';
 import App from './index';
 import Login from './components/login';
 import requireAuth from './components/requireAuth';
-import Chat from './components/chat';
+import ActivityAdder from './components/activityAdder';
 
 export default (
   <Route path='/' component={App} >
-    <IndexRoute component={requireAuth(Chat)} />
+    <IndexRoute component={requireAuth(ActivityAdder)} />
     <Route path='login' component={Login} />
   </Route>
 )
