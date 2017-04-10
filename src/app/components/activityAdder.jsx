@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { addMessage } from '../../actions';
 
-export class Composition extends React.Component {
+export class ActivityAdder extends React.Component {
   constructor() {
     super()
     this.state = {text: ''};
@@ -49,4 +49,4 @@ function mapDispatchToProps(dispatch, ownProps) {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Composition);
+export default connect(mapStateToProps, mapDispatchToProps)(ActivityAdder);

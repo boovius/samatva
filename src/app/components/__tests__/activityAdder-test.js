@@ -1,12 +1,12 @@
-import { Composition } from '../composition';
+import { ActivityAdder } from '../activityAdder';
 
-describe('Composition', ()=>{
+describe.only('ActivityAdder', ()=>{
   let action, composition, button, form;
 
   beforeEach(()=>{
     action = sinon.spy();
 
-    composition = mount(<Composition send={action} />);
+    composition = mount(<ActivityAdder send={action} />);
     button = composition.find('input[type="submit"]');
     form = composition.find('form');
   });
