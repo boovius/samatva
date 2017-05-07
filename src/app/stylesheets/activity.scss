@@ -1,0 +1,19 @@
+.activity {
+  border: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 20px;
+  margin-bottom: 1em;
+  width: 75%;
+
+  .title {
+
+  }
+
+  .do {
+    padding: 15px;
+    background-color: #ddd;
+    border-radius: 4px;
+  }
+}
