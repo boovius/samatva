@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addMessage } from '../../actions';
+import { addActivity } from '../../actions';
 
 export class ActivityAdder extends React.Component {
   constructor() {
@@ -17,7 +17,7 @@ export class ActivityAdder extends React.Component {
   _submit(e) {
     e.preventDefault();
     if (this.state.text === '') return;
-    this.props.send(this.state.text, this.props.author);
+    this.props.send(this.state.text);
     this.setState({text: ''});
   }
 
@@ -38,14 +38,12 @@ export class ActivityAdder extends React.Component {
 }
 
 function mapStateToProps(state) {
-  return {
-    author: state.auth.user
-  }
+  return {}
 }
 
 function mapDispatchToProps(dispatch, ownProps) {
   return {
-    send: (text, author) => { dispatch(addMessage(text, author)) }
+    send: (text) => { dispatch(addActivity(text)) }
   }
 }
 
