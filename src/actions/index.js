@@ -2,7 +2,7 @@ import {
   ADD_MESSAGE,
   RECEIVE_MESSAGES,
   TOGGLE_AUTH
-} from './constants';
+} from '../constants';
 
 export function addMessage(text, author) {
   return {
