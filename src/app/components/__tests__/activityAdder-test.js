@@ -1,6 +1,6 @@
 import { ActivityAdder } from '../activityAdder';
 
-describe.only('ActivityAdder', ()=>{
+describe('ActivityAdder', ()=>{
   let action, composition, button, form;
 
   beforeEach(()=>{
