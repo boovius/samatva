@@ -1,7 +1,8 @@
 import {
   ADD_ACTIVITY,
   RECEIVE_ACTIVITIES,
-  TOGGLE_AUTH
+  TOGGLE_AUTH,
+  DO_ACTIVITY
 } from '../constants';
 
 export function addActivity(title) {
@@ -22,5 +23,12 @@ export function toggleAuth(user = {}) {
   return {
     type: TOGGLE_AUTH,
     user
+  }
+}
+
+export function doActivity() {
+  return {
+    type: DO_ACTIVITY,
+    time: Date.now()
   }
 }
