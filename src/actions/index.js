@@ -1,19 +1,19 @@
 import {
-  ADD_MESSAGE,
-  RECEIVE_MESSAGES,
+  ADD_ACTIVITY,
+  RECEIVE_ACTIVITIES,
   TOGGLE_AUTH
 } from '../constants';
 
-export function addMessage(text, author) {
+export function addActivity(title) {
   return {
-    type: ADD_MESSAGE,
-    message: { text, author }
+    type: ADD_ACTIVITY,
+    activity: { title }
   }
 }
 
-export function receiveMessages(data) {
+export function receiveActivities(data) {
   return {
-    type: RECEIVE_MESSAGES,
+    type: RECEIVE_ACTIVITIES,
     data
   }
 }
