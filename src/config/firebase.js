@@ -12,7 +12,7 @@ firebase.initializeApp(firebaseConfig);
 
 export const db = firebase.database();
 
-export const messagesRef = db.ref().child('messages');
+export const usersRef = db.ref().child('users');
 
 export const auth = firebase.auth();
 
