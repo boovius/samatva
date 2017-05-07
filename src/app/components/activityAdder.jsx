@@ -23,7 +23,7 @@ export class ActivityAdder extends React.Component {
 
   render() {
     return(
-      <div className='composition'>
+      <div className='activity-adder'>
         <form onSubmit={this._submit}>
           <input
             type='text'
