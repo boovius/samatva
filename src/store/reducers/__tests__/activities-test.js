@@ -2,7 +2,7 @@ import { RECEIVE_ACTIVITIES, ADD_ACTIVITY } from '../../../constants';
 import deepFreeze from 'deep-freeze';
 import activities from '../activities';
 
-describe.only('activities reducer', () => {
+describe('activities reducer', () => {
   describe(RECEIVE_ACTIVITIES, () => {
     const stateBefore = [];
     const activityData = {
