@@ -1,0 +1,3 @@
+export const RECEIVE_MESSAGES = 'RECEIVE_MESSAGES';
+export const ADD_MESSAGE = 'ADD_MESSAGE';
+export const TOGGLE_AUTH = 'TOGGLE_AUTH';
