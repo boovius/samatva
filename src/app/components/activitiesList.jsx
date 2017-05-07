@@ -1,15 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ActivityAdder from './activityAdder';
+import Activity from './activity';
 
 export class ActivitiesList extends React.Component {
   _activities() {
-    return this.props.activities.map(a => <li>{a.title}</li>)
+    return this.props.activities.map((a,i) => <Activity key={i} title={a.title}/>)
   }
 
   render() {
     return(
-      <div className='list'>
+      <div className='activities-list'>
         <ul>
           {this._activities()}
         </ul>
