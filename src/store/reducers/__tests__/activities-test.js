@@ -4,7 +4,7 @@ import activities from '../activities';
 
 describe('activities reducer', () => {
   describe(RECEIVE_ACTIVITIES, () => {
-    const stateBefore = [];
+    const stateBefore = {};
     const activityData = {
       'activity-1-uid': {
         title: 'activity-1'
@@ -19,16 +19,16 @@ describe('activities reducer', () => {
       data: activityData
     };
 
-    const stateAfter = [
-      {
+    const stateAfter = {
+      'activity-1-uid': {
         title: 'activity-1',
         sunk: true
       },
-      {
+      'activity-2-uid': {
         title: 'activity-2',
         sunk: true
       }
-    ];
+    };
 
     deepFreeze(stateBefore);
     deepFreeze(action);
@@ -38,41 +38,48 @@ describe('activities reducer', () => {
   });
 
   describe(ADD_ACTIVITY, () => {
-    const stateBefore = [
-      {
+    const stateBefore = {
+      'activity-1-uid': {
         title: 'activity-1',
         sunk: true
       },
-      {
+      'activity-2-uid': {
         title: 'activity-2',
         sunk: true
       }
-    ];
+    };
 
+    const timeNow = Date.now();
     const action = {
       type: ADD_ACTIVITY,
       activity: {title: 'new-activity'}
     };
 
-    const stateAfter = [
-      {
+    const stateAfter = {
+      'activity-1-uid': {
         title: 'activity-1',
         sunk: true
       },
-      {
+      'activity-2-uid': {
         title: 'activity-2',
         sunk: true
       },
-      {
+      3: {
         title: 'new-activity',
         sunk: false
       }
-    ];
+    };
 
     deepFreeze(stateBefore);
     deepFreeze(action);
     it('sets activities to data received', () => {
       expect(activities(stateBefore, action)).to.eql(stateAfter);
+    });
+  });
+
+  describe('default', () => {
+    it('is an empty object', () => {
+      expect(activities()).to.eql({});
     });
   });
 });
