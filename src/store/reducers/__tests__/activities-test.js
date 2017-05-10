@@ -49,7 +49,6 @@ describe('activities reducer', () => {
       }
     };
 
-    const timeNow = Date.now();
     const action = {
       type: ADD_ACTIVITY,
       activity: {title: 'new-activity'}
@@ -72,7 +71,7 @@ describe('activities reducer', () => {
 
     deepFreeze(stateBefore);
     deepFreeze(action);
-    it('sets activities to data received', () => {
+    it('adds new activity to state with unique key based on state length', () => {
       expect(activities(stateBefore, action)).to.eql(stateAfter);
     });
   });
