@@ -26,9 +26,10 @@ export function toggleAuth(user = {}) {
   }
 }
 
-export function doActivity() {
+export function doActivity(activityId, time) {
   return {
     type: DO_ACTIVITY,
-    time: Date.now()
+    activityId,
+    time
   }
 }
