@@ -5,7 +5,14 @@ import Activity from './activity';
 
 export class ActivitiesList extends React.Component {
   _activities() {
-    return this.props.activities.map((a,i) => <Activity key={i} title={a.title}/>)
+    const { activities } = this.props;
+    return (
+      Object.keys(activities)
+      .map(activityId => {
+        let activity = Object.assign({}, activities[activityId], {id: activityId});
+        return <Activity key={activityId} activity={activity}/>
+      })
+    )
   }
 
   render() {
