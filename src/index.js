@@ -17,6 +17,7 @@ ReactDOM.render(
   document.getElementById('container')
 );
 
+//update this to cache reduction for redux playback
 if (module.hot) {
   module.hot.accept();
 }

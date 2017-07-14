@@ -1,8 +1,8 @@
-import { combineReducers} from 'redux';
-import messages from './messages'
+import { combineReducers } from 'redux';
+import activities from './activities'
 import auth from './auth'
 
 export default combineReducers({
-  messages,
+  activities,
   auth
 });

@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addMessage } from '../../actions';
+import { addActivity } from '../../actions';
 
-export class Composition extends React.Component {
+export class ActivityAdder extends React.Component {
   constructor() {
     super()
     this.state = {text: ''};
@@ -17,13 +17,13 @@ export class Composition extends React.Component {
   _submit(e) {
     e.preventDefault();
     if (this.state.text === '') return;
-    this.props.send(this.state.text, this.props.author);
+    this.props.send(this.state.text);
     this.setState({text: ''});
   }
 
   render() {
     return(
-      <div className='composition'>
+      <div className='activity-adder'>
         <form onSubmit={this._submit}>
           <input
             type='text'
@@ -38,15 +38,13 @@ export class Composition extends React.Component {
 }
 
 function mapStateToProps(state) {
-  return {
-    author: state.auth.user
-  }
+  return {}
 }
 
 function mapDispatchToProps(dispatch, ownProps) {
   return {
-    send: (text, author) => { dispatch(addMessage(text, author)) }
+    send: (text) => { dispatch(addActivity(text)) }
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Composition);
+export default connect(mapStateToProps, mapDispatchToProps)(ActivityAdder);
