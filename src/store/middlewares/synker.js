@@ -1,20 +1,17 @@
-import { ADD_ACTIVITY } from '../../constants/'
+import { ADD_ACTIVITY, DO_ACTIVITY } from '../../constants/'
 import { usersRef } from '../../config/firebase'
-
-//const SYNCS = [
-//  ADD_ACTIVITY,
-//  DO_ACTIVITY,
-//]
 
 const synker = store => next => action => {
   let result;
 
-  //if (action.type includedIn(SYNCS)) {
+  console.log('pushing to firebase');
+
   if (action.type === ADD_ACTIVITY) {
     result = next(action)
-
-    console.log('pushing to db')
     usersRef.push(action.activity, () => {})
+  } else if (action.type === DO_ACTIVITY) {
+    usersRef.child(action.activityId)
+    .child('doings').push(action.time, () => {})
   } else {
     result = next(action)
   }
