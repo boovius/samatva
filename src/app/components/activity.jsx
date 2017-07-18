@@ -16,11 +16,33 @@ export class Activity extends React.Component {
 }
 
 function doingsCount(activity) {
-  if (typeof activity.doings != 'undefined') {
-    return activity.doings.length;
-  } else {
-    return 0;
+  const { doings } = activity;
+  if (typeof doings === 'undefined') {
+    return 'none yet';
   }
+
+  const now = new Date;
+
+  return Object.keys(doings).reduce((sum, key) => {
+    const doneTime = doings[key];
+    if (hasBeenCreatedSinceStartOf(doneTime, now)) {
+      return sum + 1;
+    } else {
+      return sum;
+    }
+  }, 0)
+}
+
+function hasBeenCreatedSinceStartOf(time, now) {
+  const dayOfWeek = now.getDay();
+  let startOfWeek = new Date(now.setDate(now.getDate() - dayOfWeek + (dayOfWeek == 0 ? -6:1)));
+  const startOfWeekTime = zeroOutTime(startOfWeek).valueOf();
+
+  return time > startOfWeekTime;
+}
+
+function zeroOutTime(date) {
+  return date.setHours(0) && date.setMinutes(0) && date.setSeconds(0) && date.setMilliseconds(0);
 }
 
 function mapStateToProps() {
