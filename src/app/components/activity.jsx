@@ -23,7 +23,7 @@ function doingsCount(activity) {
 
   const now = new Date;
 
-  return Object.keys(doings).reduce((sum, key) => {
+  const count = Object.keys(doings).reduce((sum, key) => {
     const doneTime = doings[key];
     if (hasBeenCreatedSinceStartOf(doneTime, now)) {
       return sum + 1;
@@ -31,6 +31,17 @@ function doingsCount(activity) {
       return sum;
     }
   }, 0)
+
+  if (count === 0) {
+    return "last done: " + lastTimeDone(doings);
+  } else {
+    return count
+  }
+}
+
+function lastTimeDone(doings) {
+  const lastTime = Object.values(doings).slice(-1)[0];
+  return new Date(lastTime);
 }
 
 function hasBeenCreatedSinceStartOf(time, now) {
